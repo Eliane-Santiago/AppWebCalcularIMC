@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>IMC</title>
+
+  </head>
+
+  <body class="text-bg-secondary p-3">
+
+    <h1>CALCULAR - IMC</h1>
+
+    <form class="row g-3" id="form-imc">
+      <div class="col-12">
+        <label for="inputNome" class="form-label">Nome</label>
+        <input type="text" required class="form-control" id="inputNome" placeholder="Digite seu nome">
+      </div>
+      <div class="col-md-6">
+        <label for="inputAltura" class="form-label">Altura</label>
+        <input type="number" required class="form-control" id="inputAltura" placeholder="Digite sua altura em centimetros">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPeso" class="form-label">Peso</label>
+        <input type="number" required class="form-control" id="inputPeso" placeholder="Digite sua massa corporal">
+      </div>
+      <div class="col-12">
+        <label for="inputResulCalcIMC" class="form-label">Resultado do Calculo do IMC</label>
+        <input type="text" class="form-control" id="inputResulCalcIMC" disabled="">
+      </div>
+      <div class="col-md-6">
+        <label for="inputNivelIMC" class="form-label">Nível do IMC</label>
+        <input type="text" class="form-control" id="inputNivelIMC" disabled="disabled">
+      </div>
+      <div class="col-md-6">
+        <label for="inputMensagem" class="form-label">Mensagem</label>
+        <input type="text" class="form-control" id="inputMensagem" disabled="disabled">
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end" id="button">
+        <button class="btn btn-primary me-md-2" id="buttonCalcIMC" >Calcular IMC</button>
+        <button class="btn btn-primary me-md-2" id="buttonClear">Limpar</button>  
+      </div>
+    </form>
+
+    <script type="text/javascript">
+
+            //Selecionando o objeto botões
+            let buttonCalcIMC = document.querySelector("#buttonCalcIMC");
+            let buttonClear = document.querySelector("#buttonClear");
+
+              //console.log(inputNome);
+              //console.log(inputAltura);
+              //console.log(inputPeso);
+              
+
+          //Escutador de Evento e Função do Botão Calcular
+          buttonCalcIMC.addEventListener("click", (event)=>{
+
+            //função para não carregar a página
+            event.preventDefault();
+
+            //Selecionando Elementos HTML
+            let inputNome = document.getElementById("inputNome").value;
+            let inputAltura = document.getElementById("inputAltura").value;
+            let inputPeso = document.getElementById("inputPeso").value;
+
+            inputAltura /=100;
+
+            let inputCalcIMC = inputPeso/(inputAltura*inputAltura);
+
+        
+            if (inputCalcIMC < 16) {
+
+                document.getElementById("inputNivelIMC").value = "Baixo Peso - Muito Grave";
+                document.getElementById("inputMensagem").value = inputNome + ",  tenha alimentação mais rica em carboidratos";
+                document.getElementById("inputResulCalcIMC").value = inputCalcIMC.toFixed(2);
+
+              } else if (inputCalcIMC >= 16 && inputCalcIMC <= 16.99) {
+
+                document.getElementById("inputNivelIMC").value = "Baixo Peso - Grave";
+                document.getElementById("inputMensagem").value = inputNome + ", você precisar ter uma alimentação mais rica em carboidratos";
+                document.getElementById("inputResulCalcIMC").value = inputCalcIMC.toFixed(2);
+
+              } else if (inputCalcIMC >= 17 && inputCalcIMC <= 18.49) {
+
+                console.log("Baixo Peso")
+
+                document.getElementById("inputNivelIMC").value = "Baixo Peso";
+                document.getElementById("inputMensagem").value = inputNome + ", você precisar ter uma alimentação mais rica em carboidratos";
+                document.getElementById("inputResulCalcIMC").value = inputCalcIMC.toFixed(2);
+
+              } else if (inputCalcIMC >= 18.50 && inputCalcIMC <= 24.99) {
+
+                console.log("Peso normal")
+
+                document.getElementById("inputNivelIMC").value = "Peso normal";
+                document.getElementById("inputMensagem").value = inputNome + ", parabéns continuidade com esse foco";
+                document.getElementById("inputResulCalcIMC").value = inputCalcIMC.toFixed(2);
+
+              } else if (inputCalcIMC >= 25 && inputCalcIMC <= 29.99) {
+
+                document.getElementById("inputNivelIMC").value = "Sobrepeso";
+                document.getElementById("inputMensagem").value = inputNome + ", você precisar ter uma alimentação um pouco mais pobre em carboidratos";
+                document.getElementById("inputResulCalcIMC").value = inputCalcIMC.toFixed(2);
+
+              } else if (inputCalcIMC >= 30 && inputCalcIMC <= 34.99) {
+
+                document.getElementById("inputNivelIMC").value = "Obesidade grau I";
+                document.getElementById("inputMensagem").value = inputNome + ", você precisar ter uma alimentação mais pobre em carboidratos";
+                document.getElementById("inputResulCalcIMC").value = inputCalcIMC.toFixed(2);
+
+              } else if (inputCalcIMC >= 35 && inputCalcIMC <= 39.99) {
+
+                document.getElementById("inputNivelIMC").value = "Obesidade grau II";
+                document.getElementById("inputMensagem").value = inputNome + ", você precisar ter uma alimentação mais pobre em carboidratos";
+                document.getElementById("inputResulCalcIMC").value = inputCalcIMC.toFixed(2);
+
+              } else if (inputCalcIMC >= 40) {
+
+                document.getElementById("inputNivelIMC").value = "Obesidade grau III";
+                document.getElementById("inputMensagem").value = inputNome + ", você precisar ter uma alimentação mais pobre em carboidratos";
+                document.getElementById("inputResulCalcIMC").value = inputCalcIMC.toFixed(2);
+
+              }
+
+              return console.log(inputCalcIMC); 
+
+          });
+
+
+            //Escutador de Evento e Função do Botão Limpar
+           buttonClear.addEventListener("click", (event)=>{
+
+              //função para não carregar a página
+              event.preventDefault();
+
+              document.getElementById('form-imc').reset();
+
+           });
+
+
+
+    </script>
+
+  </body>
+
+</html>
