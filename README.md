@@ -16,7 +16,9 @@ f) Se o resultado IMC estiver entre 30 e 34,99: Obesidade grau I
 g) Se o resultado IMC estiver entre 35 e 39,99: Obesidade grau II
 h) Se o resultado IMC for maior que 40: Obesidade grau IIedita
 
-## Para usar essa aplicação é só fazer o dowload do repositório e abrir o arquivo index.hmtl no navegador de sua preferência
+## Como executar essa aplicação
+
+Para usar essa aplicação é só fazer o dowload do repositório e abrir o arquivo index.hmtl no navegador de sua preferência
 
 ## Como usar essa aplicação 
 
