@@ -25,3 +25,8 @@ Para usar essa aplicação é só fazer o dowload do repositório e abrir o arqu
 Digite seu nome, digite sua altura em centimetros e depois seu peso.
 Clique no botão Calcular IMC
 A aplicação irá calcular o IMC, mostrar o resultado do calculo, mostrar o Nível correspondente ao cálculo e uma mensagem com uma pequena orientação.
+
+## Tecnológias Aplicadas
+- HTML
+- CSS / BOOTSTRAP
+- JAVASCRIPT
